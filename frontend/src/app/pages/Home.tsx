@@ -88,7 +88,7 @@ export function Home() {
         className="relative min-h-[90vh] flex items-center justify-center overflow-hidden"
       >
         {/* Background Image Slider */}
-        <div className="absolute inset-0 z-0 bg-black">
+        <div className="absolute inset-0 z-0 bg-[#000B18]">
           {sliderImages.map((src, idx) => (
             <motion.img
               key={src}
@@ -100,7 +100,7 @@ export function Home() {
               transition={{ duration: 1.5 }}
             />
           ))}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/80" /> {/* Dark gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#000B18]/90 via-[#00152b]/70 to-[#000B18]/90" /> {/* Midnight Blue overlay */}
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 text-center flex flex-col items-center justify-center pt-16 pb-12 w-full font-sans">
