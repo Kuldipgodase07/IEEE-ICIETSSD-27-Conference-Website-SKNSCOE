@@ -192,9 +192,20 @@ export function Navbar() {
             >
               IEEE Technically Sponsored
             </span>
-            <a href="/submission"   className="hover:text-white transition-colors">Submit Paper</a>
-            <span className="text-slate-700">|</span>
-            <a href="/registration" className="hover:text-white transition-colors">Register</a>
+            <div className="flex items-center gap-2">
+              <a 
+                href="/#submission"   
+                className="px-3 py-1 rounded-[4px] border border-[#00C2FF]/40 text-[#00C2FF] hover:bg-[#00C2FF]/10 transition-all flex items-center justify-center font-bold tracking-wide bg-white/5"
+              >
+                Submit Paper
+              </a>
+              <a 
+                href="/#registration" 
+                className="px-3 py-1 rounded-[4px] border border-[#00C2FF]/40 text-[#00C2FF] hover:bg-[#00C2FF]/10 transition-all flex items-center justify-center font-bold tracking-wide bg-white/5"
+              >
+                Register
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -355,8 +366,8 @@ export function Navbar() {
                   </div>
                 ))}
                 <div className="mt-3 pt-3 border-t border-slate-100 grid grid-cols-2 gap-2 pb-2">
-                  <a href="/submission"   className="flex justify-center py-2.5 text-[12px] font-bold text-white rounded" style={{ background:'linear-gradient(135deg,#00629B,#0A4D8C)' }}>Submit Paper</a>
-                  <a href="/registration" className="flex justify-center py-2.5 text-[12px] font-bold text-primary rounded border-2 border-primary/25 bg-primary/5">Register Now</a>
+                  <a href="/#submission"   className="flex justify-center py-2.5 text-[12px] font-bold text-white rounded" style={{ background:'linear-gradient(135deg,#00629B,#0A4D8C)' }}>Submit Paper</a>
+                  <a href="/#registration" className="flex justify-center py-2.5 text-[12px] font-bold text-primary rounded border-2 border-primary/25 bg-primary/5">Register Now</a>
                 </div>
               </div>
             </motion.div>

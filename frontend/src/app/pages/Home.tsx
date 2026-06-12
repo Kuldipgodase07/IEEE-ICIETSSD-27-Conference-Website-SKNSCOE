@@ -158,7 +158,7 @@ export function Home() {
              initial={{ opacity: 0, y: 10 }}
              animate={{ opacity: 1, y: 0 }}
              transition={{ delay: 0.5 }}
-             className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-1.5 text-white text-[12px] font-bold mb-8 drop-shadow-md"
+             className="bg-[#00629B]/40 backdrop-blur-md border border-[#00C2FF]/30 rounded-full px-6 py-1.5 text-white text-[13px] font-bold tracking-wide mb-8 drop-shadow-md"
           >
              Conference ID : 65952
           </motion.div>
