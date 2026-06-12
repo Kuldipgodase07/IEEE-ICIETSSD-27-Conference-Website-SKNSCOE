@@ -164,7 +164,7 @@ export function Navbar() {
     <header className="w-full z-50 sticky top-0">
 
       {/* ── Top Info Bar ─────────────────────────────────────────────────── */}
-      <div style={{ background: '#0A192F', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+      <div className="hidden lg:block" style={{ background: '#0A192F', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
         <div className="max-w-7xl mx-auto px-4 h-9 flex items-center justify-between">
           <div className="flex items-center gap-5 text-[11px] text-slate-400 font-medium">
             <span className="flex items-center gap-1.5">
