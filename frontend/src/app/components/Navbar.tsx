@@ -155,9 +155,12 @@ export function Navbar() {
   const leave = ()              => { timerRef.current = setTimeout(() => setOpenDropdown(null), 180); };
 
   const isActive = (item: NavItem) => {
-    const currentHash = location.hash || '#';
-    return item.href ? currentHash === item.href
-                     : (item.children?.some(c => currentHash === c.href) ?? false);
+    const currentPath = location.pathname;
+    const currentHash = location.hash;
+    const fullCurrent = currentPath + currentHash;
+    
+    return item.href ? fullCurrent === item.href
+                     : (item.children?.some(c => fullCurrent === c.href) ?? false);
   };
 
   return (
@@ -229,34 +232,38 @@ export function Navbar() {
                       className="relative flex items-center px-3 text-[14px] font-semibold whitespace-nowrap transition-colors"
                       style={{ color: isActive(link) ? '#00629B' : '#374151' }}
                     >
-                      <span className="hover:text-primary transition-colors">{link.label}</span>
-                      {isActive(link) && (
-                        <motion.span
-                          layoutId="navUnderline"
-                          className="absolute bottom-0 left-0 right-0 h-[3px]"
-                          style={{ background: 'linear-gradient(90deg,#00629B,#00C2FF)' }}
-                          transition={{ type: 'spring', stiffness: 400, damping: 32 }}
-                        />
-                      )}
-                    </a>
-                  ) : (
-                    <>
-                      <button
-                        className="relative flex items-center gap-0.5 px-3 text-[14px] font-semibold whitespace-nowrap transition-colors group"
-                        style={{ color: isActive(link) ? '#00629B' : '#374151' }}
-                      >
-                        <span className="group-hover:text-primary transition-colors">{link.label}</span>
-                        <ChevronDown
-                          className={`w-3 h-3 transition-transform duration-200 group-hover:text-primary ${openDropdown === link.label ? 'rotate-180 text-primary' : 'text-slate-400'}`}
-                        />
+                      <span className="relative hover:text-primary transition-colors py-1">
+                        {link.label}
                         {isActive(link) && (
                           <motion.span
                             layoutId="navUnderline"
-                            className="absolute bottom-0 left-0 right-0 h-[3px]"
+                            className="absolute -bottom-1.5 left-0 right-0 h-[3px] rounded-full"
                             style={{ background: 'linear-gradient(90deg,#00629B,#00C2FF)' }}
                             transition={{ type: 'spring', stiffness: 400, damping: 32 }}
                           />
                         )}
+                      </span>
+                    </a>
+                  ) : (
+                    <>
+                      <button
+                        className="relative flex items-center gap-1 px-3 text-[14px] font-semibold whitespace-nowrap transition-colors group"
+                        style={{ color: isActive(link) ? '#00629B' : '#374151' }}
+                      >
+                        <span className="relative group-hover:text-primary transition-colors py-1">
+                          {link.label}
+                          {isActive(link) && (
+                            <motion.span
+                              layoutId="navUnderline"
+                              className="absolute -bottom-1.5 left-0 right-0 h-[3px] rounded-full"
+                              style={{ background: 'linear-gradient(90deg,#00629B,#00C2FF)' }}
+                              transition={{ type: 'spring', stiffness: 400, damping: 32 }}
+                            />
+                          )}
+                        </span>
+                        <ChevronDown
+                          className={`w-3 h-3 transition-transform duration-200 group-hover:text-primary ${openDropdown === link.label ? 'rotate-180 text-primary' : 'text-slate-400'}`}
+                        />
                       </button>
                       <DropdownMenu label={link.label} items={link.children!} isOpen={openDropdown === link.label} />
                     </>
